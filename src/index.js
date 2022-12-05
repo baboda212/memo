@@ -1,6 +1,6 @@
 //index.js
 //1. 추가(입력)버튼을 클릭시 실행될 함수(추가함수)
-function handleAdd() {
+function handleAdd(content = '') { //content = ''을 입력하여 기본값을 설정
     //console.log('추가'); //확인용
     //4. memo입력요소
     const memoEl = document.getElementById('memo');
@@ -16,7 +16,7 @@ function handleAdd() {
     //console.log(memoEl.value);
 
     //8. p요소에 입력값을 추가
-    p.textContent = memoEl.value;
+    p.textContent = memoEl.value || content; //value값이나 content 값 둘중에 값이 있는 것을 입력하는 설정
     //console.log(p); 확인용
     memoEl.value = ''; //입력완료 후 내용비움(초기화)
 
@@ -57,3 +57,9 @@ addBtn.addEventListener('click', () => {
     handleAdd(); //추가함수 호출
 
 });
+
+//기본데이터 추가 content값을 설정해 주기
+handleAdd('밥하기');
+handleAdd('빨래하기');
+handleAdd('다림질');
+handleAdd('강아지산책');
