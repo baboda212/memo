@@ -1,9 +1,18 @@
 //index.js
 //1. 추가(입력)버튼을 클릭시 실행될 함수(추가함수)
-function handleAdd(content = '') { //content = ''을 입력하여 기본값을 설정
+function handleAdd(content = '') { //14 content = ''을 입력하여 기본값을 설정
     //console.log('추가'); //확인용
     //4. memo입력요소
     const memoEl = document.getElementById('memo');
+
+    //15 메모입력없으면 무시
+    if (memoEl.value == "" && content == ''){
+        return;
+        /* if(content == ""){
+            alert('메모를 입력해주세요');
+            return;
+        } */
+    };
     
     //5. li 문서객체생성
     const li = document.createElement('li');
@@ -16,10 +25,10 @@ function handleAdd(content = '') { //content = ''을 입력하여 기본값을 �
     //console.log(memoEl.value);
 
     //8. p요소에 입력값을 추가
-    p.textContent = memoEl.value || content; //value값이나 content 값 둘중에 값이 있는 것을 입력하는 설정
+    p.textContent = memoEl.value || content; //14 value값이나 content 값 둘중에 값이 있는 것을 입력하는 설정
     //console.log(p); 확인용
     memoEl.value = ''; //입력완료 후 내용비움(초기화)
-
+  
     //9. 삭제버튼 생성
     const delBtn = document.createElement('button');
     delBtn.textContent = '삭제';
@@ -58,7 +67,7 @@ addBtn.addEventListener('click', () => {
 
 });
 
-//기본데이터 추가 content값을 설정해 주기
+//14. 기본데이터 추가 content값을 설정해 주기
 handleAdd('밥하기');
 handleAdd('빨래하기');
 handleAdd('다림질');
